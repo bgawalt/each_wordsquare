@@ -1,0 +1,4 @@
+corncob.db
+.DS_Store
+resources/
+*.config
