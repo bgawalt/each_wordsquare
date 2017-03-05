@@ -40,13 +40,11 @@ def SquareToUnicode(square):
 
 def GetTweepyConfig(config_filename):
     """Returns dictionary with auth details for building a Tweepy API object."""
-    print 'gtc', config_filename
     with open(config_filename, "r") as infile:
         config = {}
         for line in infile:
             spline = line.split(" = ")
             config[spline[0]] = spline[1].strip()
-    print config
     return config
 
 
@@ -83,7 +81,6 @@ def main(args):
     cur = conn.cursor()
 
     sq_id, square = GetNextSquare(cur)
-    print square
     tw_id = TweetSquare(square, twconfig_filename)
     MarkAsTweeted(cur, sq_id, tw_id)
 
